@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <title>Escena A-Frame – Cubisme</title>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+
+<body>
+<a-scene cursor="rayOrigin: mouse">
+
+  <!-- ASSETS -->
+  <a-assets>
+    <img id="fons" src="fons1.jpg">
+    <img id="terra" src="texturaterra.jpg">
+    <img id="img1" src="1.jpg">
+    <img id="img2" src="2.jpg">
+    <img id="img3" src="3.jpg">
+    <img id="img4" src="4.jpg">
+    <img id="img5" src="5.jpg">
+  </a-assets>
+
+  <!-- FONS I TERRA -->
+  <a-sky src="#fons"></a-sky>
+  <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="100" src="#terra"></a-plane>
+
+  <!-- OBJECTE 1 -->
+  <a-box id="obj1" position="-5 2 -6" src="#img1"
+         animation="property: rotation; to: 0 360 0; dur: 6000; loop: true">
+  </a-box>
+
+  <!-- OBJECTE 2 -->
+  <a-sphere id="obj2" position="0 3 -8" radius="1.5" src="#img2">
+  </a-sphere>
+
+  <!-- OBJECTE 3 -->
+  <a-plane id="obj3" position="5 4 -10" width="4" height="3" src="#img3">
+  </a-plane>
+
+  <!-- OBJECTE 4 -->
+  <a-cone id="obj4" position="-2 1 -4" radius-bottom="1" height="3" src="#img4">
+  </a-cone>
+
+  <!-- OBJECTE 5 -->
+  <a-dodecahedron id="obj5" position="3 2 -5" radius="1.5" src="#img5">
+  </a-dodecahedron>
+
+  <!-- OBJECTE 6 -->
+  <a-cylinder id="obj6" position="7 1.5 -7" radius="1" height="3" color="#AA336A">
+  </a-cylinder>
+
+</a-scene>
+
+<!-- SCRIPT CLICKS -->
+<script>
+  // CLICK 1 – Mou esfera
+  document.querySelector("#obj2").addEventListener("click", () => {
+    document.querySelector("#obj2").setAttribute("animation", {
+      property: "position",
+      to: "0 8 -8",
+      dur: 2000
+    });
+  });
+
+  // CLICK 2 – Gira el pla
+  document.querySelector("#obj3").addEventListener("click", () => {
+    document.querySelector("#obj3").setAttribute("animation", {
+      property: "rotation",
+      to: "0 0 360",
+      dur: 3000
+    });
+  });
+
+  // CLICK 3 – Fa gran el dodecaedre
+  document.querySelector("#obj5").addEventListener("click", () => {
+    document.querySelector("#obj5").setAttribute("animation", {
+      property: "scale",
+      to: "3 3 3",
+      dur: 2000
+    });
+  });
+</script>
+
+</body>
+</html>
